@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='janela_icone.png') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <title>SENAI - Início</title>
+</head>
+<body>
+    
+    <div id="topbar">
+        <div id="logo">
+            <img src="/static/logo_sistema.png">
+        </div>
+    
+        <div class="menu-topbar">
+            <a href="/tabela" class="menu-item">MATERIAIS</a>
+            <a href="/editar" class="menu-item">EDITAR</a>
+
+        {% if session.get('tipo') == 'admin' %}
+            <a href="/acesso" class="menu-item">CONTAS</a>
+            <a href="/cadastro" class="menu-item">CADASTRO</a>
+        {% endif %}
+
+        </div>
+    
+        <div id="perfil">
+                <div class="dropdown">
+                    <img src="/static/logo_perfil.png" data-bs-toggle="dropdown" style="cursor: pointer;">
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li class="dropdown-item">Usuário: {{ session['usuario'] }}</li>
+                        <li class="dropdown-item">E-mail: {{ session['email'] }}</li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item sair" href="/logout">Sair</a></li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+    
+    <h1 id="titulo">Boas-vindas ao Almoxarifado!</h1>
+
+
+    <div class="table-container">
+        <table class="table table-bordered tabela-estoque">
+            <tr>
+                <th>ID</th>
+                <th>RESPONSÁVEL</th>
+                <th>NOME</th>
+                <th>CATEGORIA</th>
+                <th>QUANTIDADE</th>
+                <th>QUANTIDADE MIN</th>
+                <th>PREÇO</th>
+                <th>DESCRIÇÃO</th>
+                <th>IMAGEM</th>
+                <th>EXCLUIR</th>
+            </tr>
+    
+            {% for item in resultado %}
+    
+            <tr>
+            <td>{{item[0]}}</td>
+            <td>{{item[1]}}</td>
+            <td>{{item[2]}}</td>
+            <td>{{item[3]}}</td>
+            <td>{{item[4]}}</td>
+            <td>{{item[5]}}</td>
+
+            <!-- PREÇO -->
+            <td>R$ {{item[6]}}</td>
+
+            <!-- DESCRIÇÃO (Item 6) -->
+            <td>
+                <button class="btn btn-info btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#descricao{{item[0]}}">
+                    <span class="material-symbols-outlined">
+                        description
+                    </span>
+                </button>
+            </td>
+
+            <!-- IMAGEM (Item 7)-->
+            <td>
+                <button class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#imagem{{item[0]}}">
+                    <span class="material-symbols-outlined">
+                        photo_camera
+                    </span>
+                </button>
+            </td>
+
+            <!-- EXCLUIR (Item 9) -->
+            <td>
+                <button class="btn btn-danger btn-sm"
+                        onclick="excluirItem('{{item[0]}}')">
+                    <span class="material-symbols-outlined">
+                        delete
+                    </span>
+                </button>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </table>
+</div>
+    
+    {% for item in resultado %}
+    
+    <!-- MODAL DESCRIÇÃO -->
+    <div class="modal fade" id="descricao{{item[0]}}" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+    
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        {{item[2]}}
+                    </h5>
+    
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+    
+                <div class="modal-body">
+                    {{item[7]}}
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    
+    <!-- MODAL IMAGEM -->
+    <div class="modal fade" id="imagem{{item[0]}}" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+    
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        {{item[2]}}
+                    </h5>
+    
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+    
+                <div class="modal-body text-center">
+    
+                    {% if item[7] %}
+                        <img src="{{item[8]}}"
+                             class="img-fluid"
+                             style="max-height:400px;">
+                    {% else %}
+                        <p>Nenhuma imagem cadastrada.</p>
+                    {% endif %}
+    
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    
+    {% endfor %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
