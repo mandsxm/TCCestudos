@@ -1,4 +1,10 @@
 from flask import Flask, render_template, request, jsonify, redirect, session, url_for #bibliotecas
+#render_template: Renderiza arquivos HTML armazenados na pasta templates; Permite enviar dados do Python para o HTML.
+#request: Acessa os dados enviados pelo navegador (formulários, parâmetros da URL, JSON etc.).
+#jsonify: Converte dicionários ou listas do Python em uma resposta JSON. Muito utilizado em APIs.
+#redirect: Redireciona o usuário para outra página
+#session: Armazena informações do usuário durante a navegação, como login.
+#url_for: Gera URLs automaticamente para rotas da aplicação. Evita escrever caminhos manualmente.
 import mysql.connector #conectar com o banco de dados
 import os #interage com o sistema operacional (pastas, arquivos) | usado para criar a pasta uploads caso ela não exista
 import bcrypt #criptografia da senha
