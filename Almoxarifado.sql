@@ -23,9 +23,9 @@ CREATE TABLE usuarios (/*cria tabela de users*/
 );
 
 INSERT INTO estoque (responsavel, nome, categoria, qtde, estoque_min, preco, descricao, imagem) /*coloca itens na tabela*/
-VALUES ("Róger", "Chave Fenda", "Ferramenta", 12, 24, 25.00, "Chave de fenda pequena", "/static/chave_fenda.jpg"); /*valores necessarios da tabela*/
+VALUES ("Róger", "Chave Fenda", "Mecatrônica", 12, 24, 25.00, "Chave de fenda pequena", "/static/chave_fenda.jpg"); /*valores necessarios da tabela*/
 INSERT INTO estoque (responsavel, nome, categoria, qtde, estoque_min, preco, descricao, imagem)
-VALUES ("Viviane", "Alicate", "Ferramenta", 8, 28, 28.00, "Alicate da marca Tramontina", "/static/alicate.jpg");
+VALUES ("Viviane", "Alicate", "Mecatrônica", 8, 28, 28.00, "Alicate da marca Tramontina", "/static/alicate.jpg");
 
 INSERT INTO usuarios (user, email, tipo, senha)
 VALUES ('Administrador', 'admin@empresa.com', 'admin', '$2a$12$glWRAuHWTu6VOfiVxBmFNON0HiHey93me9JvMPsTEnNrI0GcB3aMW');
