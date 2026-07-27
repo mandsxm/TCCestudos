@@ -35,8 +35,8 @@ VALUES ('João', 'joao@empresa.com', 'usuário', '$2a$12$Oc1gJWh92oGDc/EO9oKyu.U
 SELECT * FROM estoque; /*seleciona tudo que está na tabela para ser mostrado*/
 SELECT * FROM usuarios;
 
-DROP TABLE estoque; 
+DROP TABLE estoque; /*apagar a tabela (ela deixa de existir)*/
 DROP TABLE usuarios;
 
-TRUNCATE TABLE estoque; 
+TRUNCATE TABLE estoque; /*não ta funcionando - exclui tudo da tabela (deixa ela vazia)*/
 TRUNCATE TABLE usuarios;
