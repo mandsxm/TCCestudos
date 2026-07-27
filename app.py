@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, jsonify, redirect, session, url_for #bibliotecas
 import mysql.connector #conectar com o banco de dados
-import os #interage com o sistema operacional (pastas, arquivos)
+import os #interage com o sistema operacional (pastas, arquivos) | usado para criar a pasta uploads caso ela não exista
 import bcrypt #criptografia da senha
-from werkzeug.utils import secure_filename #para nao dar erro com nome de arquivo enviado pro sistema
+from werkzeug.utils import secure_filename #para segurança com nome dos arquivos enviados no sistema pelos usuários
 
 app = Flask(__name__) #criação da aplicação principal flask
 app.secret_key = "brasil" #cria uma senha que o flask usa para proteger dados sensíveis
