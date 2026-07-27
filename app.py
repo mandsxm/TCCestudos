@@ -18,7 +18,7 @@ def gerar_hash(senha_texto): #cria a função 'gerar_hash' que pega a 'senha_tex
     senha_bytes = senha_texto.encode('utf-8') #bcrypt nao trabalha com string, e sim com bytes | aqui ele transforma a senha comum em bytes usando a codificação UTF-8 que transforma caracteres em numeros que o computador entende
     salt = bcrypt.gensalt() #gensalt() = generate salt | salt faz com que mesmo que dois users usem senhas iguais, tipo 123456, os hashes serão diferentes e não identicos. Assim, não é possível que alguém descubra o padrão entre as duas senhas iguais.
     senha_hash = bcrypt.hashpw(senha_bytes, salt) #pega os bytes gerado + o salt gerado e transforma na senha em hash | hashpw = hash password
-    return senha_hash.decode('utf-8') #retorna o valor em bytes(linguegem que o pc entende) em uma string (texto comum que nóe entendemos) | processo inverso do encode
+    return senha_hash.decode('utf-8') #retorna o valor em bytes(linguegem que o pc entende) em uma string (texto comum que nós entendemos) | processo inverso do encode
     #pq precisa do decode? | Pq o banco espera receber um 'VARCHAR', uma string de texto, não um objeto bytes do Python, então nós precisamos converter os bytes para uma string para que o banco de dados consiga receber esse dado
 
 def verificar_senha(senha_digitada, hash_armazenado): #serve pra verificar a senha que foi digitada na hora do login, pra ver se a senha digitada bate com a senha hash
