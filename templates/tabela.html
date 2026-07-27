@@ -49,8 +49,8 @@
 
     <div class="table-container">
         <table class="table table-bordered tabela-estoque">
-            <tr>
-                <th>ID</th>
+            <tr> <!--table row = linha da tabela-->
+                <th>ID</th> <!--table header = título da coluna-->
                 <th>RESPONSÁVEL</th>
                 <th>NOME</th>
                 <th>CATEGORIA</th>
@@ -62,10 +62,10 @@
                 <th>EXCLUIR</th>
             </tr>
     
-            {% for item in resultado %}
+            {% for item in resultado %} <!--pra cada item da lista resultado o jinja2 cria uma nova linha <tr> completa com os dados daquele item-->
     
             <tr>
-            <td>{{item[0]}}</td>
+            <td>{{item[0]}}</td> <!--table data = onde os dados ficam-->
             <td>{{item[1]}}</td>
             <td>{{item[2]}}</td>
             <td>{{item[3]}}</td>

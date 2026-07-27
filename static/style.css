@@ -1,279 +1,327 @@
-/* CONFIGURAÇÕES PARA TELA DE LOGIN */
+/* ==========================================================================
+   CONFIGURAÇÕES PARA TELA DE LOGIN
+   ========================================================================== */
 
 body {
-  margin: 0;
-  background-color:#F0F1F2;
-  font-family: "Google Sans", sans-serif;
+  /* seletor "body" = aplica estilo ao elemento <body> inteiro, ou seja, a página toda por padrão */
+  margin: 0; /* remove a margem padrão que os navegadores aplicam automaticamente ao redor da página, fazendo o conteúdo colar nas bordas da tela */
+  background-color:#F0F1F2; /* cor de fundo da página inteira: um cinza bem claro, quase branco (código hexadecimal: cada par representa vermelho, verde e azul) */
+  font-family: "Google Sans", sans-serif; /* fonte usada no texto | "Google Sans" é a preferida | sans-serif é o substituto genérico (fonte sem serifa), usado se a preferida não estiver disponível no computador de quem visualiza */
 }
 
 #login-body{
-  background-color:#1D3273;
-  overflow: hidden;
-  font-family: sans-serif
+  /* seletor "#" = aplica estilo a um elemento ESPECÍFICO com esse id no HTML (id é único, só um elemento pode ter) | bate com <body id="login-body"> */
+  background-color:#1D3273; /* muda o fundo pra azul escuro, sobrescrevendo o cinza claro do body geral, só nessa página */
+  overflow: hidden; /* controla o que acontece quando o conteúdo é maior que o espaço disponível | "hidden" esconde qualquer parte que ultrapasse os limites, sem mostrar barra de rolagem */
+  font-family: sans-serif /* redefine a fonte só nessa página, direto pra genérica sans-serif */
 }
 
 #titulo-login{
-  margin-top: 0px;
-  margin-bottom: 25px;
-  font-family: sans-serif;
+  /* estiliza o elemento com id="titulo-login" (o bloco com "BOAS-VINDAS AO" / "SENAI ALMOXARIFADO") */
+  margin-top: 0px; /* sem espaço extra acima desse bloco */
+  margin-bottom: 25px; /* 25 pixels de espaço abaixo desse bloco, separando do que vem depois (o card de login) */
+  font-family: sans-serif; /* fonte genérica */
 }
 
 #titulo-login h2{
-  margin-top: 0px;
-  font-size: 1rem;
-  font-weight: 300;
-  letter-spacing: 4px;
-  margin-bottom: 8px;
-  color: #F0F1F2;
+  /* seletor descendente (dois seletores separados por espaço) = qualquer <h2> que esteja DENTRO do elemento com id "titulo-login", não importa a profundidade | bate com o <h2>BOAS-VINDAS AO</h2> */
+  margin-top: 0px; /* sem espaço acima */
+  font-size: 1rem; /* tamanho do texto | rem = unidade relativa ao tamanho de fonte "raiz" da página (geralmente 16px por padrão) | 1rem = ~16px */
+  font-weight: 300; /* espessura da fonte, de 100 (bem fino) a 900 (bem grosso) | 300 é relativamente fino, dando um visual "leve" */
+  letter-spacing: 4px; /* espaço extra entre cada letra do texto, dando aquele efeito "espaçado" comum em subtítulos/rótulos */
+  margin-bottom: 8px; /* espaço abaixo desse h2, separando do h1 que vem em seguida */
+  color: #F0F1F2; /* cor do texto: o mesmo cinza claro do body geral, contrastando com o fundo azul escuro */
 }
 
 #titulo-login h1{
-  margin-top: 0px;
-  font-size: 2.7rem;
-  font-weight: bold;
-  color: #F0F1F2;
-  margin: 0;
-  letter-spacing: 1px;
-  text-shadow: 2px 2px 12px rgba(0,0,0,0.25);
+  /* qualquer <h1> dentro de "titulo-login" | bate com <h1>SENAI ALMOXARIFADO</h1> */
+  margin-top: 0px; /* sem espaço acima */
+  font-size: 2.7rem; /* tamanho bem maior que o h2 (2.7x o tamanho base), já que é o título principal */
+  font-weight: bold; /* deixa o texto em negrito, dando destaque */
+  color: #F0F1F2; /* mesma cor clara do h2, mantendo consistência visual */
+  margin: 0; /* zera margem em todas as direções (topo, direita, baixo, esquerda de uma vez) */
+  letter-spacing: 1px; /* espaçamento leve entre letras, bem mais sutil que o h2 (que tinha 4px) */
+  text-shadow: 2px 2px 12px rgba(0,0,0,0.25); /* sombra no texto: 2px pra direita, 2px pra baixo, 12px de desfoque, cor preta com 25% de opacidade | dá profundidade/destaque ao título */
 }
 
 #login-page{
-  display: flex;
-  height: 100vh;
+  /* o container que envolve a tela de login inteira (imagem + formulário lado a lado) */
+  display: flex; /* ativa o modelo de layout flexbox, que organiza os elementos filhos numa linha (ou coluna) de forma flexível */
+  height: 100vh; /* altura de 100% da viewport (a área visível da tela do navegador) | ocupa a tela inteira verticalmente */
 }
 
 #login-img{
-  width: 55%;
-  position: relative;
-  overflow: hidden;
+  /* o container da imagem à esquerda da tela de login */
+  width: 55%; /* ocupa 55% da largura do container pai */
+  position: relative; /* define que elementos filhos posicionados como "absolute" vão se posicionar em relação a ESSE elemento, não à página inteira */
+  overflow: hidden; /* esconde qualquer parte da imagem que ultrapasse os limites desse container */
 }
 
 #login-img img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  /* a imagem em si, dentro do container #login-img */
+  width: 100%; /* ocupa 100% da largura do container pai (#login-img) */
+  height: 100%; /* ocupa 100% da altura do container pai */
+  object-fit: cover; /* faz a imagem preencher todo o espaço disponível, cortando o excesso se necessário, sem distorcer a proporção original */
 }
 
 #login-img::before{
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 35%; /* apenas a parte direita */
-  height: 100%;
+  /* ::before = cria um elemento "fantasma" antes do conteúdo real de #login-img, usado aqui pra criar um efeito de gradiente sobre a imagem */
+  content: ""; /* obrigatório pra ::before funcionar, mesmo vazio, senão o elemento não é criado */
+  position: absolute; /* posiciona esse elemento em relação ao #login-img (que tem position: relative) */
+  top: 0; /* gruda no topo do container */
+  right: 0; /* gruda na direita do container */
+  width: 35%; /* apenas a parte direita */ /* ocupa só 35% da largura, ficando restrito ao lado direito da imagem */
+  height: 100%; /* ocupa a altura inteira do container */
 
   background: linear-gradient(
     to left,
     #1D3273 0%,
     rgba(29, 50, 115, 0.85) 40%,
     rgba(29, 50, 115, 0) 100%
-  );
+  ); /* cria um gradiente de cor, indo da direita pra esquerda ("to left") | começa 100% opaco na cor azul (#1D3273), passa por 85% de opacidade aos 40% do caminho, e termina totalmente transparente (opacidade 0) aos 100% | cria um efeito de "esmaecimento" da imagem em direção ao formulário */
 }
 
 #fiep-img{
-  display: flex;
-  justify-content: center;
+  /* container da logo da FIEP dentro do card de login */
+  display: flex; /* ativa flexbox pra organizar o conteúdo interno */
+  justify-content: center; /* centraliza o conteúdo horizontalmente dentro desse container */
 }
 
 #fiep-img img{
-  width: 250px;
-  height: auto
+  /* a imagem da logo em si */
+  width: 250px; /* largura fixa de 250 pixels */
+  height: auto /* altura ajustada automaticamente, mantendo a proporção original da imagem (evita distorção) */
 }
 
 #login-form{
-  width: 50%;
+  /* o container do formulário à direita da tela (título + card de login) */
+  width: 50%; /* ocupa 50% da largura do container pai */
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: flex; /* ativa flexbox */
+  flex-direction: column; /* organiza os elementos filhos em coluna (um embaixo do outro), em vez de lado a lado */
+  justify-content: center; /* centraliza o conteúdo verticalmente (já que a direção é coluna) */
 
-  padding: 10px 60px; 
-  max-width: 440px;
-  margin: auto;
+  padding: 10px 60px; /* espaçamento interno: 10px em cima/embaixo, 60px nas laterais (esquerda/direita) */
+  max-width: 440px; /* largura máxima de 440 pixels, mesmo que o container pai seja maior */
+  margin: auto; /* centraliza esse elemento horizontalmente dentro do espaço disponível */
 }
 
 #erro-login{
-  text-align: center;
-  color: rgb(255, 0, 0)
+  /* a div que mostra a mensagem de erro ("Email ou senha incorreto(s)") */
+  text-align: center; /* centraliza o texto horizontalmente */
+  color: rgb(255, 0, 0) /* cor do texto: vermelho puro (código rgb = vermelho, verde, azul; aqui só o vermelho está no máximo) */
 }
 
 #login-card{
-  padding: 30px;
-  background-color:#F0F1F2;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  /* o "cartão" branco/claro que contém o formulário de login em si */
+  padding: 30px; /* espaçamento interno de 30px em todas as direções */
+  background-color:#F0F1F2; /* cor de fundo cinza claro, destacando do fundo azul escuro da página */
+  border-radius: 15px; /* arredonda os cantos do card em 15px, dando um visual mais suave */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* sombra ao redor do card: sem deslocamento horizontal, 4px pra baixo, 20px de desfoque, preto com 10% de opacidade | dá um efeito sutil de profundidade/elevação */
 }
 
 #btn-entrar{
-  width: 75%;
-  display: block;
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  /* o botão "Entrar" do formulário de login */
+  width: 75%; /* ocupa 75% da largura do container pai */
+  display: block; /* faz o botão se comportar como um bloco (ocupa a linha inteira disponível dentro da sua largura definida), permitindo centralizar com margin auto */
+  margin-top: 10px; /* espaço acima do botão */
+  margin-left: auto; /* margem automática à esquerda... */
+  margin-right: auto; /* ...e à direita = centraliza o botão horizontalmente dentro do container */
 }
 
-/* CONFIGURAÇÕES PARA TELA HOME */
+/* ==========================================================================
+   CONFIGURAÇÕES PARA TELA HOME
+   ========================================================================== */
 
 .menu-topbar {
-    display: flex;
-    gap: 15px;
-    margin-top: 10px;
-    position: absolute;
-    left: 48%;
-    transform: translateX(-50%);
+  /* seletor "." = aplica estilo a qualquer elemento com essa CLASSE no HTML (diferente de id, uma classe pode ser usada em vários elementos diferentes) */
+  display: flex; /* organiza os itens do menu em linha, lado a lado */
+  gap: 15px; /* espaço de 15px entre cada item do menu */
+  margin-top: 10px; /* espaço acima do menu */
+  position: absolute; /* posiciona esse elemento fora do fluxo normal da página, em relação ao ancestral posicionado mais próximo */
+  left: 48%; /* posiciona a borda esquerda do elemento a 48% da largura do container de referência */
+  transform: translateX(-50%); /* desloca o elemento 50% da PRÓPRIA largura dele pra esquerda | combinado com o left:48%, centraliza o elemento horizontalmente de forma mais precisa que só usar "left" sozinho */
 }
 
 .menu-item {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 8px 12px;
-    border-radius: 6px;
+  /* cada link/item individual dentro do menu (classe reaproveitada em vários links) */
+  color: white; /* cor do texto: branco */
+  text-decoration: none; /* remove o sublinhado padrão que links (<a>) costumam ter */
+  font-weight: bold; /* texto em negrito */
+  padding: 8px 12px; /* espaçamento interno: 8px em cima/embaixo, 12px nas laterais */
+  border-radius: 6px; /* cantos levemente arredondados */
 }
 
 .menu-item:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+  /* :hover = um "pseudo-seletor" que só aplica o estilo quando o mouse está passando POR CIMA do elemento */
+  background-color: rgba(255, 255, 255, 0.2); /* fundo branco com 20% de opacidade, criando um destaque sutil ao passar o mouse */
 }
 
 #topbar {
-    background-color: #1D3273;
-    height: 100px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
+  /* a barra superior fixa do site (com logo, menu e perfil) */
+  background-color: #1D3273; /* fundo azul escuro, mesma cor da tela de login */
+  height: 100px; /* altura fixa de 100 pixels */
+  width: 100%; /* ocupa toda a largura da tela */
+  position: fixed; /* fixa o elemento na tela, mesmo quando a página é rolada (scroll) — ele nunca "sai" da visão */
+  top: 0; /* gruda no topo da tela */
+  left: 0; /* gruda na esquerda da tela */
+  z-index: 1000; /* controla a "camada" de empilhamento — valores maiores ficam por cima de valores menores, garantindo que a topbar fique acima de outros elementos */
+  display: flex; /* organiza o conteúdo interno em linha */
+  align-items: center; /* centraliza os itens verticalmente dentro da barra */
 }
 
 #titulo{
-    margin-top: 145px;
-    margin-bottom: 50px;
-    text-align: center;
-    font-family: "Google Sans", sans-serif;
-    color: #1D3273;
+  /* título de alguma tela (provavelmente a tabela de estoque, dado o contexto) */
+  margin-top: 145px; /* bastante espaço acima, provavelmente pra não ficar escondido atrás da topbar fixa (que tem 100px de altura) */
+  margin-bottom: 50px; /* espaço abaixo do título */
+  text-align: center; /* centraliza o texto */
+  font-family: "Google Sans", sans-serif; /* mesma fonte usada no body geral */
+  color: #1D3273; /* cor do texto: azul escuro, mesma cor da topbar */
 }
 
 .icon-camera {
-    font-size: 26px;
+  /* algum ícone de câmera usado na interface */
+  font-size: 26px; /* tamanho do ícone (assumindo que seja uma fonte de ícones, tipo Bootstrap Icons ou Font Awesome) */
 }
 
 #logo {
-    position: absolute;
-    top: 28px;
-    left: 10%;
-    transform: translateX(-50%);
-    z-index: 10000; 
+  /* a logo exibida na topbar */
+  position: absolute; /* posiciona em relação ao ancestral posicionado mais próximo (provavelmente a #topbar, que teria position relative em algum lugar, ou o body) */
+  top: 28px; /* 28px do topo */
+  left: 10%; /* 10% da largura, a partir da esquerda */
+  transform: translateX(-50%); /* desloca 50% da própria largura pra esquerda, ajudando a centralizar em torno do ponto "left: 10%" */
+  z-index: 10000; /* camada bem alta, garantindo que a logo fique visível acima de quase tudo */
 }
 
 #logo img {
-    width: 145px;
-    height: auto;
-    display: block;
+  /* a imagem da logo em si */
+  width: 145px; /* largura fixa */
+  height: auto; /* altura proporcional, sem distorcer */
+  display: block; /* remove o pequeno espaço extra que imagens costumam ter por padrão quando tratadas como texto em linha */
 }
 
 #perfil {
-    position: absolute;
-    top: -15px;
-    right: 75px;
-    z-index: 10000; 
+  /* o ícone/foto de perfil do usuário, exibido na topbar */
+  position: absolute; /* mesmo raciocínio da #logo, posicionado em relação ao ancestral mais próximo */
+  top: -15px; /* levemente ACIMA do topo do elemento de referência (valor negativo) */
+  right: 75px; /* 75px a partir da direita */
+  z-index: 10000; /* camada bem alta, garantindo visibilidade */
 }
 
 #perfil img {
-    width: 135px;
-    height: auto;
+  /* a imagem de perfil em si */
+  width: 135px; /* largura fixa */
+  height: auto; /* altura proporcional */
 }
 
 .menu-topbar {
-    display: flex;
-    gap: 20px;
-    margin-left: 40px;
+  /* ATENÇÃO: essa classe já foi definida lá em cima! esse é um segundo bloco de regras pra .menu-topbar, mais abaixo no arquivo */
+  display: flex; /* repete display:flex (já estava definido acima) */
+  gap: 20px; /* redefine o espaçamento entre itens pra 20px (sobrescrevendo os 15px definidos no primeiro bloco, já que essa regra vem depois no arquivo) */
+  margin-left: 40px; /* adiciona uma margem à esquerda que não existia no primeiro bloco */
 }
 
 .table-container {
-    display: flex;
-    justify-content: center;
-    margin: 120px auto;
-    margin-top: 50px;
+  /* container que envolve a tabela de estoque/usuários */
+  display: flex; /* ativa flexbox */
+  justify-content: center; /* centraliza o conteúdo horizontalmente */
+  margin: 120px auto; /* 120px de margem em cima/embaixo, "auto" nas laterais (centraliza horizontalmente) */
+  margin-top: 50px; /* sobrescreve o valor de cima da margem combinada acima, mudando só o topo pra 50px */
 }
 
 body::-webkit-scrollbar {
-    display: none;
+  /* ::-webkit-scrollbar = pseudo-elemento específico de navegadores baseados em WebKit/Blink (Chrome, Edge, Safari) que permite estilizar a barra de rolagem */
+  display: none; /* esconde completamente a barra de rolagem visualmente (a rolagem ainda funciona, só não aparece a barra) */
 }
 
 .tabela-estoque {
-    width: 60%;
-    border: 2px solid #F28705;
-    border-radius: 12px;
-    overflow: hidden;
-    border-collapse: separate;
-    border-spacing: 0;
+  /* a tabela HTML que lista os itens do estoque */
+  width: 60%; /* ocupa 60% da largura do container pai */
+  border: 2px solid #F28705; /* borda de 2px, sólida, na cor laranja */
+  border-radius: 12px; /* cantos arredondados */
+  overflow: hidden; /* esconde qualquer conteúdo interno que ultrapasse os limites arredondados, garantindo que o arredondamento apareça corretamente mesmo com conteúdo dentro */
+  border-collapse: separate; /* controla como as bordas de células adjacentes da tabela se comportam | "separate" mantém bordas individuais (necessário pro border-radius funcionar direito numa tabela) */
+  border-spacing: 0; /* remove o espaçamento padrão entre células da tabela */
 }
 
 .tabela-estoque th,
 .tabela-estoque td {
-    border-bottom: 1px solid #ddd;
-    padding: 10px;
+  /* seletor múltiplo (vírgula) = aplica a mesma regra tanto pras células de cabeçalho (th) quanto pras células comuns (td) dentro da tabela-estoque */
+  border-bottom: 1px solid #ddd; /* linha fina cinza clara embaixo de cada célula, separando as linhas da tabela visualmente */
+  padding: 10px; /* espaçamento interno de 10px em cada célula */
 }
 
 .dropdown-item.sair:hover {
-    background-color: #0f1e3d;
-    color: white;
+  /* seletor combinado: um elemento que tem AMBAS as classes "dropdown-item" E "sair" ao mesmo tempo (sem espaço entre elas = "e", não "descendente") | :hover = só ao passar o mouse | provavelmente o item "Sair" (logout) dentro de um menu dropdown */
+  background-color: #0f1e3d; /* fundo azul bem escuro ao passar o mouse */
+  color: white; /* texto branco ao passar o mouse */
 }
 
-/* TELA CADASTRO */
+/* ==========================================================================
+   TELA CADASTRO
+   ========================================================================== */
 
 #body-cadastro {
-  overflow: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  /* o <body> específico da tela de cadastro de usuário */
+  overflow: hidden; /* esconde conteúdo que ultrapasse os limites, sem barra de rolagem padrão */
+  scrollbar-width: none; /* propriedade padrão (não específica de navegador) pra esconder a barra de rolagem, usada no Firefox */
+  -ms-overflow-style: none; /* versão específica pra navegadores antigos da Microsoft (Internet Explorer/Edge legado), também escondendo a barra de rolagem */
 }
 
 #body-cadastro::-webkit-scrollbar {
-  display: none;
+  /* versão específica pra navegadores WebKit/Blink (Chrome, Edge moderno, Safari) */
+  display: none; /* esconde a barra de rolagem nesses navegadores também | as três regras juntas (overflow, scrollbar-width, -ms-overflow-style, ::-webkit-scrollbar) garantem que a barra suma em praticamente todos os navegadores */
 }
 
 #cadastro-card{
-  padding: 30px;
-  background-color:#F0F1F2;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  /* o card/cartão que envolve o formulário de cadastro de usuário */
+  padding: 30px; /* espaçamento interno de 30px */
+  background-color:#F0F1F2; /* fundo cinza claro, igual ao login-card */
+  border-radius: 15px; /* cantos arredondados */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* mesma sombra sutil usada no login-card, mantendo consistência visual entre as telas */
 }
 
 #titulo-cadastro{
-    margin-top: 145px;
-    margin-bottom: 42px;
-    text-align: center;
-    font-family: "Google Sans", sans-serif;
-    color: #1D3273;
+  /* título da tela de cadastro */
+  margin-top: 145px; /* espaço grande acima, provavelmente pra não ficar escondido atrás da topbar fixa */
+  margin-bottom: 42px; /* espaço abaixo do título */
+  text-align: center; /* texto centralizado */
+  font-family: "Google Sans", sans-serif; /* mesma fonte padrão */
+  color: #1D3273; /* mesma cor azul escura usada em outros títulos */
 }
 
 #main-cadastro {
-  max-width: 700px;
-  margin: 0px auto 30px;
-  padding: 25px;
-  background: #ffffff;
-  border-radius: 12px;
-  border: 2px solid #F28705;
+  /* o container principal que envolve todo o conteúdo da tela de cadastro */
+  max-width: 700px; /* largura máxima de 700px, mesmo em telas maiores */
+  margin: 0px auto 30px; /* margem: 0 em cima, automática nas laterais (centraliza), 30px embaixo */
+  padding: 25px; /* espaçamento interno de 25px */
+  background: #ffffff; /* fundo branco puro */
+  border-radius: 12px; /* cantos arredondados */
+  border: 2px solid #F28705; /* borda laranja de 2px, mesma cor usada na tabela de estoque */
 }
 
 #btn-criar {
-  width: 35%;
-  display: block;
-  margin-top: 16px;
-  margin-left: auto;
+  /* o botão de "Criar" (provavelmente pra finalizar o cadastro de usuário) */
+  width: 35%; /* ocupa 35% da largura do container */
+  display: block; /* comporta-se como bloco, ocupando a linha, permitindo centralização com margin auto */
+  margin-top: 16px; /* espaço acima do botão */
+  margin-left: auto; /* centraliza horizontalmente junto com margin-right auto */
   margin-right: auto;
 }
 
-/* TELA EDITAR */
+/* ==========================================================================
+   TELA EDITAR
+   ========================================================================== */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  /* seletor universal "*" = aplica essa regra a absolutamente TODOS os elementos da página, sem exceção */
+  margin: 0; /* zera a margem padrão de todos os elementos */
+  padding: 0; /* zera o espaçamento interno padrão de todos os elementos */
+  box-sizing: border-box; /* muda como o navegador calcula a largura/altura total de um elemento: com border-box, padding e border passam a ser INCLUÍDOS dentro da largura/altura definida, em vez de somados a ela (evita elementos "estourarem" o tamanho esperado) */
 }
 
 #logo {
+  /* ATENÇÃO: essa regra #logo já foi definida lá em cima (na seção HOME) — aqui é repetida, com os mesmos valores exatos, provavelmente porque essa seção do CSS foi escrita/colada depois, pensando especificamente na tela de editar */
   position: absolute;
   top: 28px;
   left: 10%;
@@ -282,19 +330,22 @@ body::-webkit-scrollbar {
 }
 
 #logo img {
+  /* mesma regra repetida também */
   width: 145px;
   height: auto;
   display: block;
 }
 
 .foto-perfil {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  object-fit: cover;
+  /* uma classe (diferente do #perfil visto antes) pra imagens de foto de perfil circulares */
+  width: 70px; /* largura fixa */
+  height: 70px; /* altura fixa (igual à largura, necessário pra formar um círculo perfeito) */
+  border-radius: 50%; /* arredonda os cantos em 50%, transformando um quadrado/retângulo numa forma circular/oval */
+  object-fit: cover; /* preenche o espaço circular com a imagem, cortando o excesso sem distorcer, igual vimos na imagem de login */
 }
 
 #perfil {
+  /* regra #perfil repetida (mesma da seção HOME) */
   position: absolute;
   top: -15px;
   right: 75px;
@@ -302,126 +353,144 @@ body::-webkit-scrollbar {
 }
 
 #perfil img {
+  /* regra repetida também */
   width: 135px;
   height: auto;
 }
 
 #main-editar {
-  max-width: 968px;
-  margin: 5px auto 10px;
-  padding: 15px;
-  background: #ffffff;
-  border-radius: 12px;
-  border: 2px solid #F28705;
+  /* o container principal do formulário de editar/cadastrar item do estoque */
+  max-width: 968px; /* largura máxima maior que o #main-cadastro (968px), já que esse formulário tem mais campos */
+  margin: 5px auto 10px; /* margem: 5px em cima, automática nas laterais, 10px embaixo */
+  padding: 15px; /* espaçamento interno */
+  background: #ffffff; /* fundo branco */
+  border-radius: 12px; /* cantos arredondados */
+  border: 2px solid #F28705; /* borda laranja, mantendo o padrão visual das outras telas */
 }
 
 .secao-label {
-  color: #1D3273;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  margin-bottom: 5px;
+  /* classe usada pra pequenos rótulos/títulos de seção dentro do formulário (tipo "DADOS DO ITEM") */
+  color: #1D3273; /* cor azul escura */
+  font-size: 12px; /* fonte pequena */
+  font-weight: bold; /* negrito */
+  text-transform: uppercase; /* transforma todo o texto em maiúsculas automaticamente, independente de como foi digitado no HTML */
+  letter-spacing: .08em; /* espaçamento entre letras, usando a unidade "em" (relativa ao tamanho da fonte do próprio elemento) — dá aquele efeito espaçado comum em rótulos/labels */
+  margin-bottom: 5px; /* pequeno espaço abaixo do rótulo */
 }
 
 input {
-  width: 100%;
-  padding: 12px;
-  border: 2px solid #1D3273;
-  border-radius: 8px;
-  font-size: 1rem;
-  color: #1D3273;
+  /* seletor de elemento (sem # nem .) = aplica a TODOS os elementos <input> da página, de qualquer tipo (texto, número, etc) */
+  width: 100%; /* ocupa toda a largura disponível do container pai */
+  padding: 12px; /* espaçamento interno confortável pra digitação */
+  border: 2px solid #1D3273; /* borda azul escura de 2px ao redor do campo */
+  border-radius: 8px; /* cantos arredondados */
+  font-size: 1rem; /* tamanho de fonte padrão */
+  color: #1D3273; /* cor do texto digitado dentro do campo */
 }
 
 input:focus {
-  border: 2px solid #1D3273 !important;
-  outline: none !important;
-  box-shadow: none !important;
+  /* :focus = pseudo-seletor que aplica o estilo só quando o campo está "em foco" (a pessoa clicou nele e está digitando ali) */
+  border: 2px solid #1D3273 !important; /* mantém a mesma borda azul, mas com !important pra garantir que essa regra sempre prevaleça sobre qualquer outra, inclusive estilos padrão do navegador ou do Bootstrap */
+  outline: none !important; /* remove o contorno azul/destaque padrão que os navegadores aplicam automaticamente em campos focados (o "anel" ao redor do input) */
+  box-shadow: none !important; /* remove qualquer sombra que apareceria por padrão ao focar o campo (o Bootstrap, por exemplo, costuma adicionar uma sombra ao focar inputs) */
 }
 
 .btn,
 .btn-outline-primary {
-    background-color: #1D3273 !important;
-    border: 2px solid #1D3273 !important;
-    color: white !important;
-    font-weight: bold;
+  /* aplica a mesma regra tanto pra classe .btn quanto .btn-outline-primary (classes que provavelmente vêm do Bootstrap, sendo sobrescritas aqui com o visual customizado do projeto) */
+  background-color: #1D3273 !important; /* fundo azul escuro, forçado com !important pra sobrescrever o estilo padrão do Bootstrap */
+  border: 2px solid #1D3273 !important; /* borda da mesma cor do fundo */
+  color: white !important; /* texto branco */
+  font-weight: bold; /* negrito */
 }
 
 .botoes-movimento {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+  /* container que envolve os botões de "Entrada" e "Saída" lado a lado */
+  display: flex; /* organiza os botões em linha */
+  justify-content: center; /* centraliza os botões horizontalmente */
+  align-items: center; /* centraliza os botões verticalmente entre si */
+  gap: 20px; /* espaço de 20px entre os dois botões */
 }
 
 .btn-movimento {
-  width: 200px;
-  height: 45px;
+  /* classe aplicada aos botões individuais de Entrada/Saída */
+  width: 200px; /* largura fixa */
+  height: 45px; /* altura fixa */
 }
 
 .btn:hover,
 .btn-outline-primary:hover {
-    background-color: #142552 !important;
-    border-color: #142552 !important;
-    color: white !important;
+  /* estado ao passar o mouse sobre qualquer um desses botões */
+  background-color: #142552 !important; /* fundo fica num azul um pouco mais escuro que o normal, dando feedback visual de interação */
+  border-color: #142552 !important; /* borda acompanha a mesma cor mais escura */
+  color: white !important; /* texto continua branco */
 }
 
 .btn:active,
 .btn-outline-primary:active {
-    background-color: #0f1e3d !important;
-    border-color: #0f1e3d !important;
+  /* estado ":active" = no exato momento em que o botão está sendo clicado/pressionado (antes de soltar) */
+  background-color: #0f1e3d !important; /* fundo fica ainda mais escuro que o hover, reforçando a sensação de "pressionado" */
+  border-color: #0f1e3d !important; /* borda acompanha */
 }
 
 .btn:focus,
 .btn-outline-primary:focus {
-    box-shadow: 0 0 0 3px rgba(29, 50, 115, 0.3) !important;
+  /* estado ":focus" = quando o botão está selecionado, geralmente via navegação por teclado (tab) ou logo após o clique */
+  box-shadow: 0 0 0 3px rgba(29, 50, 115, 0.3) !important; /* cria um "anel" de destaque ao redor do botão: sem deslocamento, sem desfoque, 3px de espessura, cor azul com 30% de opacidade — ajuda na acessibilidade, mostrando visualmente qual elemento está selecionado */
 }
 
 .btn {
-  transition: all 0.15s ease;
+  /* regra adicional pra .btn (separada das anteriores) */
+  transition: all 0.15s ease; /* anima suavemente QUALQUER mudança de propriedade CSS (cor, sombra, posição, etc) ao longo de 0.15 segundos, com uma curva de aceleração suave ("ease") — evita que as mudanças de hover/active/focus aconteçam de forma abrupta/brusca */
 }
 
 .btn:active {
-  transform: translateY(1px);
+  /* mais uma regra pro estado ativo (clicado) */
+  transform: translateY(1px); /* desloca o botão 1 pixel pra baixo, simulando visualmente o efeito de "afundar" ao ser pressionado, como um botão físico */
 }
 
 #btnRegistrar {
-  width: 50%;
-  margin-top: 16px;
-  display: block;
-  margin-left: auto;
+  /* o botão específico de "Registrar" (o mesmo que vimos no JavaScript, disparando o fetch pro Flask) */
+  width: 50%; /* ocupa metade da largura do container */
+  margin-top: 16px; /* espaço acima */
+  display: block; /* comporta-se como bloco, permitindo centralização */
+  margin-left: auto; /* centraliza horizontalmente */
   margin-right: auto;
 }
 
 .drag-area {
-  border: 2px dashed #1D3273;
-  border-radius: 11px;
-  background: #f7f9fc;
-  color: #1D3273;
-  padding: 14px;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.3s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  /* a área de "arrastar e soltar" arquivo (ou clicar) pra fazer upload de imagem */
+  border: 2px dashed #1D3273; /* borda tracejada (não sólida) azul escura de 2px, um padrão visual comum pra indicar áreas de upload */
+  border-radius: 11px; /* cantos arredondados */
+  background: #f7f9fc; /* fundo num tom de azul/cinza bem claro, quase branco */
+  color: #1D3273; /* cor do texto dentro da área */
+  padding: 14px; /* espaçamento interno */
+  text-align: center; /* texto centralizado */
+  cursor: pointer; /* muda o formato do cursor do mouse pra uma "mãozinha" ao passar por cima, indicando que é clicável */
+  transition: 0.3s; /* anima suavemente qualquer mudança de propriedade CSS nesse elemento, ao longo de 0.3 segundos */
+  display: flex; /* organiza o conteúdo interno com flexbox */
+  flex-direction: column; /* organiza o conteúdo interno em coluna (um item embaixo do outro) */
+  align-items: center; /* centraliza os itens horizontalmente (já que a direção é coluna) */
+  gap: 10px; /* espaço entre os itens internos */
 }
 
 .drag-area.active {
-  background: #e1e9f3;
-  border-color: #1D3273;
+  /* seletor combinado: um elemento que tem AMBAS as classes "drag-area" E "active" ao mesmo tempo | provavelmente aplicado via JavaScript quando um arquivo está sendo arrastado por cima da área */
+  background: #e1e9f3; /* fundo muda pra um azul mais perceptível, dando feedback visual de que a área está "ativa"/pronta pra receber o arquivo */
+  border-color: #1D3273; /* cor da borda reforçada */
 }
 
 #preview {
-  margin-top: 20px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  /* área onde a pré-visualização da imagem enviada aparece */
+  margin-top: 20px; /* espaço acima */
+  display: flex; /* organiza as pré-visualizações em linha */
+  gap: 10px; /* espaço entre cada pré-visualização */
+  flex-wrap: wrap; /* permite que os itens "quebrem linha" automaticamente se não couberem todos numa única linha horizontal */
 }
 
 .btn-selecionado {
-  background-color: #51608C !important;
-  border-color: #F28705 !important;
-  transform: translateY(3px);
+  /* classe aplicada, via JavaScript, aos botões "Entrada"/"Saída" quando um deles está selecionado (vimos isso no script.js: classList.add("btn-selecionado")) */
+  background-color: #51608C !important; /* fundo num tom de azul acinzentado, diferenciando visualmente do estado normal */
+  border-color: #F28705 !important; /* borda muda pra laranja, criando contraste forte com o fundo azulado */
+  transform: translateY(3px); /* desloca o botão 3px pra baixo, reforçando visualmente o efeito de "selecionado/pressionado" */
 }
