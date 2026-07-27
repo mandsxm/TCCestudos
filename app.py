@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify, redirect, session, u
 import mysql.connector #conectar com o banco de dados
 import os #interage com o sistema operacional (pastas, arquivos)
 import bcrypt #criptografia da senha
-from werkzeug.utils import secure_filename #para nao dar merda com nome de arquivo enviado pro sistema
+from werkzeug.utils import secure_filename #para nao dar erro com nome de arquivo enviado pro sistema
 
 app = Flask(__name__) #criação da aplicação principal flask
 app.secret_key = "brasil" #cria uma senha que o flask usa para proteger dados sensíveis
@@ -28,7 +28,7 @@ def get_db(): #abre e devolve uma conexão com banco de dados
     return mysql.connector.connect( #retorna a conexão com o banco
         host='127.0.0.1', #onde ta rodando, localhost
         user='root', #nome de user do mysql | root é o user sdmin padrao do mysql
-        password='m4nds@mySQL_', #senha do user
+        password='', #senha do user
         database='almoxarifado', #qual banco de dados quer usar depois de conectar
     )
 
