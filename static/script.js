@@ -16,7 +16,7 @@ function salvarRascunho() { //function = função com nome, ou seja, pode ser ch
     const categoria = document.getElementById("categoria")?.value;
 
     const dados = { //define a constante dados
-        nome, //shothand, atalho do JS para nome:nome | semelhante a dicionário no PY (chave:valor) mas aqui a chave e o valor são o mesmo | pq? nós definimos ali em cima que as constantes são = ao valor que bate com o Id no HTML (value), então, ficaria (nome:Chave Fenda)
+        nome, //shorthand, atalho do JS para nome:nome | semelhante a dicionário no PY (chave:valor) mas aqui a chave e o valor são o mesmo | pq? nós definimos ali em cima que as constantes são = ao valor que bate com o Id no HTML (value), então, ficaria (nome:Chave Fenda)
         qtde, //quantidade:quantidade
         responsavel, //responsável:reponsável
         preco,
