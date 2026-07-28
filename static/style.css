@@ -12,7 +12,7 @@ body {
 #login-body{
   /* seletor "#" = aplica estilo a um elemento ESPECÍFICO com esse id no HTML (id é único, só um elemento pode ter) | bate com <body id="login-body"> */
   background-color:#1D3273; /* muda o fundo pra azul escuro, sobrescrevendo o cinza claro do body geral, só nessa página */
-  overflow: hidden; /* controla o que acontece quando o conteúdo é maior que o espaço disponível | "hidden" esconde qualquer parte que ultrapasse os limites, sem mostrar barra de rolagem */
+  overflow: hidden; /* tira a barrinha de rolagem da tela | controla o que acontece quando o conteúdo é maior que o espaço disponível | "hidden" esconde qualquer parte que ultrapasse os limites, sem mostrar barra de rolagem */
   font-family: sans-serif /* redefine a fonte só nessa página, direto pra genérica sans-serif */
 }
 
